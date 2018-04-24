@@ -4,7 +4,6 @@ import './App.css';
 
 import Pokemon from './components/Pokemon';
 import Collapse from './components/Collapse';
-import O from './components/O';
 import Card from './components/Card';
 
 class App extends Component {

@@ -9,7 +9,7 @@ class Card extends Component {
   render() {
     return (
       <div className = "container">
-        <div className={'card ' + (this.state.flipped?'flipped':'')}>
+        <div className={'card ' + ( this.state.flipped ? 'flipped' : '')}>
           
           <div className="front">
             {this.props.front()}

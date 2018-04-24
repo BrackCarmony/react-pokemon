@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+
+// recursive component
+// Not finished
+
 class O extends Component {
   constructor(props){
     super(props);
@@ -18,7 +22,6 @@ class O extends Component {
       if (this.state.collapse){
         return <span onClick={()=>{
           this.setState({collapse:false}, ()=>console.log("State Update")); 
-          console.log("State Update 1")
         }}> + </span>
       }
       return [

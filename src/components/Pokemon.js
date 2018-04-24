@@ -17,12 +17,6 @@ class Pokemon extends Component {
     this.getPokemon = _.debounce(this.getPokemon, 400);
   }
 
-  // static getDerivedStateFromProps(nextProps, prevState){
-  //   if (nextProps && prevState && nextProps.id != prevState.id){
-  //     this.getPokemon(nextProps.id);
-  //   }
-  // }
-
   componentDidUpdate(prevProps, prevState){
     if (this.props.id != prevProps.id){
       this.getPokemon(this.props.id);
@@ -36,7 +30,7 @@ class Pokemon extends Component {
       }, 0)
       return;
     }
-    console.log("Making request");
+    
     axios.get('/api/v2/pokemon/' + id).then(data=>{
       let cleanUp = {
         sprites:data.data.sprites,
