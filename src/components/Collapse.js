@@ -17,11 +17,7 @@ class Collapse extends Component {
           <span onClick={()=>this.setState({collapse:!this.state.collapse})}> {this.state.collapse?'▼':'▲'} </span>
         </div>
         <div className="content" style={{ maxHeight:this.state.collapse? 0 : this.innerHeight()}} >
-          <p> Lorem Ipsum of stuff and things</p>
-          <p> Lorem Ipsum of stuff and things</p>
-          <p> Lorem Ipsum of stuff and things</p>
-          <p> Lorem Ipsum of stuff and things</p>
-          <p> Lorem Ipsum of stuff and things</p>
+          {this.props.children}
         </div>
       </div>
     );

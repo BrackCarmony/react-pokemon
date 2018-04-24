@@ -10,6 +10,33 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {id:1, one:123, two:234};
+
+    localStorage.setItem('Demo', 'Brack can put stuff into local storage');
+
+    let saveFile = {
+      money:10000,
+      xp:5000, 
+      level:6, 
+      class:'fighter',
+      skills:['Second Wind', 'Action Surge', 'Trip']
+    }
+
+    localStorage.setItem('Brack', JSON.stringify(saveFile))
+
+    let str = localStorage.getItem('Brack')
+    let myObj
+    if (str){
+      myObj = JSON.parse(str);
+    }else{
+      myObj = {
+        money:0,
+        xp:0,
+        class:null
+      }
+    }
+
+    console.log(myObj);
+
     for (let i=2;i<10;i++){
       setTimeout(()=>{
         this.setState({id:i});
@@ -21,11 +48,11 @@ class App extends Component {
     return (
       <div className="App">
         
-        <Collapse title={'Changing: ' + this.state.id}>
+        {/* <Collapse title={'Changing: ' + this.state.id}>
           <Pokemon id={this.state.id}></Pokemon>
-        </Collapse>
+        </Collapse> */}
 
-        <Collapse title="Electric Rats">
+        {/* <Collapse title="Electric Rats">
           <Pokemon id="25"></Pokemon>
           <Pokemon id="26"></Pokemon>
           <Pokemon id="172"></Pokemon>
@@ -33,7 +60,7 @@ class App extends Component {
 
         <Collapse title="Birds">
           <Pokemon id="21"></Pokemon>
-        </Collapse>
+        </Collapse> */}
 
         <Collapse title="Choose Two">
           <input type="number" value= {this.state.one} onChange={(e)=>this.setState({one:e.target.value*1})}/>

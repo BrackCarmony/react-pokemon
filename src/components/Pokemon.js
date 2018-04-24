@@ -13,9 +13,13 @@ class Pokemon extends Component {
 
     this.state = {id:null, pokemon:null}
     if (this.props.id){
-      this.getPokemon(this.props.id);
+      setTimeout(()=>{
+        this.getPokemon(this.props.id);
+      }, 100)
+      
     }
 
+    this.getPokemon = _.debounce(this.getPokemon, 2000)
   }
 
   componentDidUpdate(prevProps, prevState){
@@ -26,6 +30,15 @@ class Pokemon extends Component {
 
   getPokemon(id){
 
+    if (localStorage.getItem('pokemon'+id)){
+      let pokemon = JSON.parse(localStorage.getItem('pokemon'+id));
+      this.setState({
+        id:id,
+        pokemon:pokemon
+      })
+      return 
+    }
+
     this.setState({id: id});
     axios.get('/api/v2/pokemon/' + id).then(data=>{
       let cleanUp = {
@@ -35,7 +48,9 @@ class Pokemon extends Component {
         types:data.data.types
       }
 
-      this.setState({pokemon:cleanUp});
+      localStorage.setItem('pokemon'+ id, JSON.stringify( data.data))
+
+      this.setState({pokemon:data.data});
     });
     
   }
