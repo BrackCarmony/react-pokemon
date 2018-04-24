@@ -1,0 +1,27 @@
+.Pokemon{
+  flex:1;
+}
+
+.image{
+  background-color: rgba(255,255,255,.2);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  min-height:100px;
+  width:100%;
+  transition:.5s;
+}
+
+.flex{
+  display:flex;
+  align-content: stretch;
+}
+
+.col {
+  flex-direction: column;
+}
+
+.stats{
+  text-align: left;
+  padding: 10px
+}

@@ -1,0 +1,52 @@
+.container{
+  perspective: 1000px;
+  height:250px;
+  width:200px;
+}
+
+.card{
+  position: relative;
+  transform-style: preserve-3d;
+  transition:.75s;
+  
+  font-size:.55em;
+  height:250px;
+  width:200px;
+
+}
+
+.flipped{
+  transform:rotateY(180deg);
+}
+
+.flipper{
+  position: absolute;
+  top:5px;
+
+  z-index: 10;
+}
+
+.back, .front{
+  backface-visibility: hidden;
+
+  text-align: justify;
+  position: absolute;
+	top: 0;
+  left: 0;
+  height:250px;
+  width:200px;
+  background: green;
+  padding:15px;
+  overflow:hidden;
+}
+
+
+.front {
+  background: rgb(179, 82, 82);
+  z-index: 1;
+}
+.back {
+  transform:rotateY(180deg);
+  background: rgb(123, 221, 221);
+  z-index: -1;
+}
