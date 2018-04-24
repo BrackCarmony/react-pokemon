@@ -12,11 +12,19 @@ class Card extends Component {
         <div className={'card ' + ( this.state.flipped ? 'flipped' : '')}>
           
           <div className="front">
-            {this.props.front()}
+            <p> Lorem Ipsum of stuff and things</p>
+            <p> Lorem Ipsum of stuff and things</p>
+            <p> Lorem Ipsum of stuff and things</p>
+            <p> Lorem Ipsum of stuff and things</p>
+            <p> Lorem Ipsum of stuff and things</p>
           </div>
           <span className="flipper" onClick={()=>this.setState({flipped:!this.state.flipped})}>↺</span>       
           <div className="back">
-            {this.props.back()}
+            <p> Lorem Ipsum of stuff and things</p>
+            <p> Lorem Ipsum of stuff and things</p>
+            <p> Lorem Ipsum of stuff and things</p>
+            <p> Lorem Ipsum of stuff and things</p>
+            <p> Lorem Ipsum of stuff and things</p>
           </div>
         </div>
       </div>

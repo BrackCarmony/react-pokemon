@@ -5,6 +5,7 @@ import _ from 'lodash';
 import './Pokemon.css';
 let defaultImage = '/images/what.jpg'
 
+_
 
 class Pokemon extends Component {
   constructor(props){
@@ -14,7 +15,7 @@ class Pokemon extends Component {
     if (this.props.id){
       this.getPokemon(this.props.id);
     }
-    this.getPokemon = _.debounce(this.getPokemon, 400);
+
   }
 
   componentDidUpdate(prevProps, prevState){
@@ -24,13 +25,8 @@ class Pokemon extends Component {
   }
 
   getPokemon(id){
-    if (localStorage.getItem('pokemon'+id)){
-      setTimeout(()=>{
-        this.setState({pokemon: JSON.parse(localStorage.getItem('pokemon'+id))});
-      }, 0)
-      return;
-    }
-    
+
+    this.setState({id: id});
     axios.get('/api/v2/pokemon/' + id).then(data=>{
       let cleanUp = {
         sprites:data.data.sprites,
@@ -38,10 +34,10 @@ class Pokemon extends Component {
         name:data.data.name,
         types:data.data.types
       }
-      localStorage.setItem('pokemon'+id, JSON.stringify(cleanUp));
+
       this.setState({pokemon:cleanUp});
     });
-    this.setState({id: id});
+    
   }
   
   render() {

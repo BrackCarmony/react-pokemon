@@ -10,7 +10,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {id:1, one:123, two:234};
-    for (let i=2;i<800;i++){
+    for (let i=2;i<10;i++){
       setTimeout(()=>{
         this.setState({id:i});
       }, 1000*i);
