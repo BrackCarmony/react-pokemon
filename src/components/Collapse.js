@@ -9,12 +9,18 @@ class Collapse extends Component {
   innerHeight(){
     return window.innerHeight;
   }
+  toggleCollapse(){
+    this.setState({
+      collapse:!this.state.collapse
+    })
+  }
   render() {
     return (
       <div className="Collapse">
         <div className="title">
           {this.props.title || 'Title'} 
-          <span onClick={()=>this.setState({collapse:!this.state.collapse})}> {this.state.collapse?'▼':'▲'} </span>
+          <span onClick={()=>this.toggleCollapse()}> {this.state.collapse?'▼':'▲'} </span>
+          <span ng-click="collapse=!collapse"/> + </span>
         </div>
         <div className="content" style={{ maxHeight:this.state.collapse? 0 : this.innerHeight()}} >
           {this.props.children}
