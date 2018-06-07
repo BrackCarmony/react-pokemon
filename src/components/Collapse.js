@@ -20,7 +20,6 @@ class Collapse extends Component {
         <div className="title">
           {this.props.title || 'Title'} 
           <span onClick={()=>this.toggleCollapse()}> {this.state.collapse?'▼':'▲'} </span>
-          <span ng-click="collapse=!collapse"/> + </span>
         </div>
         <div className="content" style={{ maxHeight:this.state.collapse? 0 : this.innerHeight()}} >
           {this.props.children}
